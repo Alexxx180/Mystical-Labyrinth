@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>TRPO01</title>
-<script type="text/javascript">
 
 KolKol = 900;
 
@@ -295,51 +289,10 @@ function TimeText() {
 
 function FormCreate() {
 	var i,H;
-	document.write('<!DOCTYPE html>');
-	document.write('<html>');
-	document.write('<head>');
-	document.write('<meta charset="utf-8">');
-	document.write('<title>Labirint</title>');
-	document.write('</head>');
-	document.write('<body bgcolor="#000000">');
-	document.write('');
-	document.write('<canvas id="Image1" width="1800" height="1000" style="position:absolute; left:0px; top:0px; "></canvas>');
-	document.write('');
 	for(i=0;i<KolKol;i++){
-		document.write('<div id="K'+i+'" style="position:absolute; left:'+(i*2)+'px; top:100px; width:2px; height:770px; background:rgb(200,100,100); "></div>');
+		document.getElementById("Walls").innerHTML += '<div id="K'+i+'" style="position:absolute; left:'+(i*2)+'px; top:100px; width:2px; height:770px; background:rgb(200,100,100); "></div>';
 		};
-	document.write('');
-	document.write('<input id="Button1" type="button" value="Играть" onclick="Button1Click()" style="position:absolute; left:1700px; top: 10px; width:80px; height:30px; ">');
-	document.write('<input id="Button2" type="button" value="Вперёд"  onclick="Button2Click()" style="position:absolute; left:1620px; top:870px; width:80px; height:30px; ">');
-	document.write('<input id="Button3" type="button" value="Налево"  onclick="Button3Click()" style="position:absolute; left:1540px; top:900px; width:80px; height:30px; ">');
-	document.write('<input id="Button4" type="button" value="Назад"   onclick="Button4Click()" style="position:absolute; left:1620px; top:930px; width:80px; height:30px; ">');
-	document.write('<input id="Button5" type="button" value="Направо" onclick="Button5Click()" style="position:absolute; left:1700px; top:900px; width:80px; height:30px; ">');
-	document.write('<p id="Timer1" style="position:absolute; left:20px; top:15px; padding:5px; background:rgba(0, 0, 0, 0.5); color:rgb(255, 255, 255); font-size: 1.5em;">'+TimeText()+'</p>');
-	document.write('');
-	document.write('<div id="panel1" style="position:absolute; left:15px; top: 100px; width:1745px; height:840px; background:rgb(220,220,220); font-size:24px; text-align: center; padding:10px">');
-	document.write('<p style="font-size:48px; "> Приветствуем вас в игре "Мистический лабиринт"</p>');
-	document.write('<p>Найдите выход из лабиринта до истечения времени, чтобы победить!</p><br/>');
-	document.write('<p>Передвижение:</p>');
-	document.write('<p>Вперед - Кнопка "Вперед" / Стрелка вверх</p>');
-	document.write('<p>Назад - Кнопка "Назад" / Стрелка вниз</p><br/>');
-	document.write('<p>Повороты</p>');
-	document.write('<p>Налево - Кнопка "Налево" / Стрелка влево</p>');
-	document.write('<p>Направо - Кнопка "Направо" / Стрелка вправо</p>');
-	document.write('<p></p>');
-
-	document.write('<div id="wonInfo" style="position:fixed; left:-2000px; top: 0px; width:1800px; height:1000px; background:rgb(220,220,220); text-align: center;  padding:10px">');
-	document.write('<p style="font-size:76px; ">Поздравляем, вы прошли лабиринт!</p>');
-	document.write('<p style="font-size:48px; ">Может еще разок?</p>');
-	document.write('<button style="font-size:48px; " onClick="Reload()">Начать заново</p>');
-	document.write('</div>');
-
-	document.write('<div id="loseInfo" style="position:fixed; left:-2000px; top: 0px; width:1800px; height:1000px; background:rgb(220,220,220); text-align: center;  padding:10px">');
-	document.write('<p style="font-size:76px; ">Увы, время вышло!</p>');
-	document.write('<button style="font-size:48px; " onClick="Reload()">Начать заново</p>');
-	document.write('</div>');
-
-	document.write('</body>');
-	document.write('</html>');
+	document.getElementById("Timer1").innerText = TimeText();
 	document.onkeydown = Klav;
 	Rectangle(0,0,1800,1000, 0,0,0, 0,0,0);
 	for(i=0;i<500;i++){
@@ -351,10 +304,3 @@ function FormCreate() {
 
 	};
 //var time = 10;
-
-</script>
-</head>
-<body bgcolor="#FFEEDD" onload="FormCreate()">
-
-</body>
-</html>
