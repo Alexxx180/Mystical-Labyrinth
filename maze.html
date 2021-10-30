@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>Level 1-1</title>
+<link rel="stylesheet" type="text/css" href="styles/maze1-1.css">
 <script type="text/javascript" src="scripts/maze1-1.js"></script>
+<script type="text/javascript" src="scripts/mazeLogic.js"></script>
 </head>
 <body bgcolor="#000000" onload="FormCreate()">
 
@@ -15,6 +17,9 @@
 <div id="Walls">
 
 </div>
+
+<div class="ceiling"></div>
+<div class="ground"></div>
 
 <input id="Button1" type="button" value="Играть" onclick="Button1Click()" style="position:absolute; left:1700px; top: 10px; width:80px; height:30px; ">
 <input id="Button2" type="button" value="Вперёд"  onclick="Button2Click()" style="position:absolute; left:1620px; top:870px; width:80px; height:30px; ">
@@ -35,15 +40,15 @@
 <p>Направо - Кнопка "Направо" / Стрелка вправо</p>
 <p></p>
 
-<div id="wonInfo" style="position:fixed; left:-2000px; top: 0px; width:1800px; height:1000px; background:rgb(220,220,220); text-align: center;  padding:10px">
+<div id="wonInfo" style="position:fixed; left:-2000px; top: 0px; width:1800px; height:1000px; background:rgb(220,220,220); text-align: center; font-size:48px; padding:10px">
 <p style="font-size:76px; ">Поздравляем, вы прошли лабиринт!</p>
-<p style="font-size:48px; ">Может еще разок?</p>
-<button style="font-size:48px; " onClick="Reload()">Начать заново</p>
+<p>Может еще разок?</p>
+<button onClick="Reload()">Начать заново</p>
 </div>
 
-<div id="loseInfo" style="position:fixed; left:-2000px; top: 0px; width:1800px; height:1000px; background:rgb(220,220,220); text-align: center;  padding:10px">
+<div id="loseInfo" style="position:fixed; left:-2000px; top: 0px; width:1800px; height:1000px; background:rgb(220,220,220); text-align: center; font-size:48px;  padding:10px">
 <p style="font-size:76px; ">Увы, время вышло!</p>
-<button style="font-size:48px; " onClick="Reload()">Начать заново</p>
+<button onClick="Reload()">Начать заново</p>
 </div>
 
 
