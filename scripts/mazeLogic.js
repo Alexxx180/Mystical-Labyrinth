@@ -1,15 +1,9 @@
 KolKol = 900;
 
-var X = 395;
-var Y = 215;
+var X = startX;
+var Y = startY;
 var Fi = -Math.PI/2;
-
-var pobedaKol = 78, pobedaStr = 34;
 var pause = true;
-
-var startTime = [1, 0];
-var time = [startTime[0],  startTime[1]];
-var timer;
 
 function PoiskPoLuchu( n ) {
 	var i,X1,Y1,NomKol,NomStr;
@@ -40,15 +34,16 @@ function PokazScen() {
 		Kletka = PoiskPoLuchu(i);
 		if (Kletka[0]==-1) {
 			document.getElementById('K'+i).style.background = 'rgb(0,0,0)';
-			document.getElementById('K'+i).style.top = '490px';
-			document.getElementById('K'+i).style.height = '20px';
+			//document.getElementById('K'+i).style.top = '490px';
+			//document.getElementById('K'+i).style.height = '20px';
+			document.getElementById('K'+i).style.height = '1%';
 			};
 		if (Kletka[0]>-1) {
 			H = 10/parseFloat(Kletka[2]); 
 			k = parseInt(Karta[Kletka[1]][Kletka[0]]);
 			document.getElementById('K'+i).style.background = 'rgb('+MapColors[k][0]*H+','+MapColors[k][1]*H+','+MapColors[k][2]*H+')';  
-			document.getElementById('K'+i).style.top = 500-1000*H+'px';
-			document.getElementById('K'+i).style.height = 2*1000*H+'px';
+			//document.getElementById('K'+i).style.top = 500-1000*H+'px';
+			document.getElementById('K'+i).style.height = 2*100*H+'%';
 			};
 		};
 	};
@@ -99,19 +94,19 @@ function Pobeda(nomKol, nomStr) {
 
 function Button1Click() {
 	if (Button1.value == 'Играть') {
-		document.getElementById('panel1').style.visibility = "hidden";
+		document.getElementById('Goals').style.visibility = "hidden";
+		document.getElementById('Movement').style.visibility = "visible";
 		Button1.value = 'Справка';
 		Pause(false);
 	} else {
-		document.getElementById('panel1').style.visibility = "visible";
+		document.getElementById('Goals').style.visibility = "visible";
+		document.getElementById('Movement').style.visibility = "hidden";
 		Button1.value = 'Играть';
 		Pause(true);
 	}
 }
 
 function Button2Click() {
-	if (pause)
-		return;
 	var X1,Y1, NomKol,NomStr;
 	X1 = X + 10*Math.cos(Fi);
 	Y1 = Y + 10*Math.sin(Fi);
@@ -128,15 +123,11 @@ function Button2Click() {
 	};
 
 function Button3Click() {
-	if (pause)
-		return;
 	Fi = Fi - 0.05;
 	PokazScen();
 }
 
 function Button4Click() {
-	if (pause)
-		return;
 	var X1,Y1, NomKol,NomStr;
 	X1 = X - 10*Math.cos(Fi);
 	Y1 = Y - 10*Math.sin(Fi);
@@ -150,20 +141,18 @@ function Button4Click() {
 }
 
 function Button5Click() {
-	if (pause)
-		return;
 	Fi = Fi + 0.05;
 	PokazScen();
 }
 
 function Reload() {
-	X = 395;
-	Y = 215;
+	X = startX;
+	Y = startY;
 	document.getElementById('wonInfo').style.visibility = "hidden";
 	document.getElementById('loseInfo').style.visibility = "hidden";
 	time = [startTime[0],  startTime[1]];
 	document.getElementById('Timer1').innerText = TimeText();
-	document.getElementById('panel1').style.visibility = "visible";
+	document.getElementById('Goals').style.visibility = "visible";
 	Button1.value = 'Играть';
 	Pause(true);
 	Fi = -Math.PI/2;
@@ -200,6 +189,8 @@ function Timer() {
 
 
 function Klav(Sender) {
+	if (pause)
+		return;
 	var code = Sender.keyCode;
 	switch(code) {
 		case 37:
@@ -228,7 +219,7 @@ function TimeText() {
 function FormCreate() {
 	var i,H;
 	for(i=0;i<KolKol;i++){
-		document.getElementById("Walls").innerHTML += '<div id="K'+i+'" style="position:absolute; left:'+(i*2)+'px; top:100px; width:2px; height:770px; background:rgb(200,100,100); "></div>';
+		document.getElementById("Walls").innerHTML += '<div class="self-center" id="K'+i+'" style="grid-column: '+(i+1)+'; width: 100%; height: 100%;"></div>';
 	}
 	document.getElementById("Timer1").innerText = TimeText();
 	document.onkeydown = Klav;

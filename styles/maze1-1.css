@@ -97,14 +97,52 @@ body {
   grid-row-end: 6;
 }
 
+.r3-5 {
+  grid-row-start: 3;
+  grid-row-end: 5;
+}
+
+.r3-7 {
+  grid-row-start: 3;
+  grid-row-end: 7;
+}
+
 .c1-7 {
   grid-column-start: 1;
   grid-column-end: 7;
 }
 
+.c4-6 {
+  grid-column-start: 4;
+  grid-column-end: 6;
+}
+
 .message {
   background:rgb(220,220,220);
+}
+
+.message2 {
+  background:rgba(0, 0, 0, 0.5);
+  color:rgb(255, 255, 255);
+}
+
+.center {
   text-align: center;
+}
+
+.self-center {
+  display: flex;
+  align-self: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.content-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pad10 {
@@ -112,6 +150,10 @@ body {
 }
 
 .fs100 {
+  font-size: 1em;
+}
+
+.fs125 {
   font-size: 1em;
 }
 
