@@ -110,3 +110,21 @@
 .bord {
   border: 5px black;
 }
+
+.white {
+  background: rgb(255, 255, 255);
+  border-radius: 10%;
+}
+
+.white:hover {
+  background: rgb(255, 255, 200);
+}
+
+.yellow {
+  background: rgb(255, 255, 200);
+  border-radius: 10%;
+}
+
+.yellow:hover {
+  background: rgb(200, 255, 200);
+}

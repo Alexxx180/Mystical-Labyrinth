@@ -81,15 +81,17 @@ function WinnerRoad(col, row) {
 }
 
 function Goals() {
-	if (Button1.value == 'Играть') {
+	if (GoalsInfo.value == 'Play') {
 		Hide('Goals');
 		Show('Movement');
-		Button1.value = 'Справка';
+		GoalsInfo.value = 'Info';
+		GoalsInfo.src = "images/Info.svg";
 		Pause(false);
 	} else {
 		Show('Goals');
 		Hide('Movement');
-		Button1.value = 'Играть';
+		GoalsInfo.value = 'Play';
+		GoalsInfo.src = "images/Right.svg";
 		Pause(true);
 	}
 }
@@ -104,6 +106,7 @@ function Forward() {
 		X = X1;
 		Y = Y1;
 		if (WinnerRoad(col, row)) {
+			Pause(true);
 			Show('wonInfo');
 		}
 	}
@@ -144,7 +147,7 @@ function Reload() {
 	time = [startTime[0],  startTime[1]];
 	GetById('Timer1').innerText = TimeText();
 	Show('Goals');
-	Button1.value = 'Играть';
+	GoalsInfo.value = 'Играть';
 	Pause(true);
 	Fi = -Math.PI/2;
 	RevealScene();
@@ -217,6 +220,10 @@ function FormCreate() {
 		GetById("Walls").innerHTML += '<div class="self-center" id="K'+i+'" style="grid-column: '+(i+1)+'; width: 100%; height: 100%;"></div>';
 	}
 	GetById("Timer1").innerText = TimeText();
+	GetById('Up').ontouchstart  = Forward;
+	GetById('Left').ontouchstart  = RotateLeft;
+	GetById('Right').ontouchstart  = RotateRight;
+	GetById('Down').ontouchstart  = Backward;
 	document.onkeydown = KeyBoardInput;
 	RevealScene();
 }

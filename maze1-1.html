@@ -2,11 +2,13 @@
 <html>
 <head>
 <meta charset="utf-8">
+<title>Level 1-1</title>
 <link rel="stylesheet" type="text/css" href="styles/total.css">
 <link rel="stylesheet" type="text/css" href="styles/mazes.css">
 <link rel="stylesheet" type="text/css" href="styles/media.css">
 <script type="text/javascript" src="scripts/total.js"></script>
 <script type="text/javascript" src="scripts/mazeColors.js"></script>
+<script type="text/javascript" src="scripts/levels/maze1-1.js"></script>
 <script type="text/javascript" src="scripts/mazeLogic.js"></script>
 </head>
 <body bgcolor="#000000" onload="FormCreate()" class="abs grid all wh2">
@@ -18,13 +20,13 @@
 
 <div id="Walls" class="grid r1-6 c1-7 walls"></div>
 
-<input id="Button1" type="button" class="r2 c5" value="Играть" onclick="Goals()">
+<input id="GoalsInfo" type="image" src="images/Right.svg" class="r2 c5 yellow wh2" value="Play" onclick="Goals()">
 
 <div id="Movement" class="r4 c4-6 grid moves wh2" style="visibility:hidden;">
-	<input id="Up"    type="button" value="Вперёд"  onclick="Forward()" class="c2 wh2">
-	<input id="Left"  type="button" value="Налево"  onclick="RotateLeft()" class="r2 wh2">
-	<input id="Down"  type="button" value="Назад"   onclick="Backward()" class="r3 c2 wh2">
-	<input id="Right" type="button" value="Направо" onclick="RotateRight()" class="r2 c3 wh2">
+	<input id="Up"    type="image" src="images/Up.svg"    onclick="Forward()"     class="c2 wh2 white"/>
+	<input id="Left"  type="image" src="images/Left.svg"  onclick="RotateLeft()"  class="r2 wh2 white" />
+	<input id="Down"  type="image" src="images/Down.svg"  onclick="Backward()"    class="r3 c2 wh2 white" />
+	<input id="Right" type="image" src="images/Right.svg" onclick="RotateRight()" class="r2 c3 wh2 white" />
 </div>
 
 <article id="Timer1" class="r2 c2 fs200 wh2 content-center message2"></article>
