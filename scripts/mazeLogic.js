@@ -1,9 +1,12 @@
-KolKol = 900;
+WallColumns = 900;
 
 var X = startX;
 var Y = startY;
 var Fi = -Math.PI/2;
 var pause = true;
+
+var time = [startTime[0],  startTime[1]];
+var timer;
 
 Number.prototype.clamp = function(min, max) {
   return Math.min(Math.max(this, min), max);
@@ -14,21 +17,22 @@ Number.prototype.filter = function(min, max) {
 };
 
 function WayByRay( n ) {
-	var i,X1,Y1,NomKol,NomStr;
-	Rez = [ -1,-1,500 ];
-	for(i=0;i<500;i++){
+	let i, X1, Y1, col, row;
+	Rez = [ -1, -1,500 ];
+	for(i = 0; i < 500; i++){
 		if (Rez[0]==-1) {
-			X1 = X + i*Math.cos(Fi+n*2.0/KolKol-1);
-			Y1 = Y + i*Math.sin(Fi+n*2.0/KolKol-1);
-			NomKol = parseInt(X1/10);
-			NomStr = parseInt(Y1/10);
-			if ((NomStr>=0) && (NomStr<Karta.length)) {
-				if ((NomKol>=0) && (NomKol<Karta[NomStr].length)) {
-					if (Karta[NomStr][NomKol]!='.') {
-						Rez[0] = NomKol;
-						Rez[1] = NomStr;
+			let calc = Fi + n * 2.0 / WallColumns - 1;
+			X1 = X + i * Math.cos(calc);
+			Y1 = Y + i * Math.sin(calc);
+			col = parseInt(X1/10);
+			row = parseInt(Y1/10);
+			if ((row >= 0) && (row < Map.length)) {
+				if ((col>=0) && (col < Map[row].length)) {
+					if (Map[row][col] != '.') {
+						Rez[0] = row;
+						Rez[1] = col;
 						Rez[2] = i;
-						};
+					}
 				}
 			}
 		}
@@ -37,127 +41,109 @@ function WayByRay( n ) {
 }
 
 function RevealScene() {
-	var i,H,Kletka,k;
-	for(i=0;i<KolKol;i++){
-		Kletka = WayByRay(i);
-		if (Kletka[0]==-1) {
-			document.getElementById('K'+i).style.background = 'rgb(0,0,0)';
-			document.getElementById('K'+i).style.height = '1%';
+	var i, Cell;
+	for(i = 0; i < WallColumns; i++){
+		Cell = WayByRay(i);
+		if (Cell[0]==-1) {
+			let name = 'K'+i;
+			SetBackGround(name, 'rgb(0,0,0)');
+			SetHeight(name, '1%');
 		}
-		if (Kletka[0]>-1) {
-			H = 10/parseFloat(Kletka[2]); 
-			k = parseInt(Karta[Kletka[1]][Kletka[0]]);
-			document.getElementById('K'+i).style.background = 'rgb('+MapColors[k][0]*H+','+MapColors[k][1]*H+','+MapColors[k][2]*H+')';  
-			document.getElementById('K'+i).style.height = (2*100*H).clamp(0, 100)+'%';
+		if (Cell[0]>-1) {
+			let H = 10/parseFloat(Cell[2]); 
+			let cell = parseInt(Map[Cell[0]][Cell[1]]);
+			let color = MapColors[cell];
+			let name = 'K'+i;
+			SetBackGround(name, RGB(color[0], color[1], color[2], H));
+			SetHeight(name, (2 * 100 * H).clamp(0, 100)+'%');
 		}
 	}
 }
 
-function Step( n ) {
-	var shag,X1,Y1,NomKol,NomStr;
-	Rez = [ -1,-1,500 ];
-	for(i=0;i<500;i++){
-		if (Rez[0]==-1) {
-			X1 = X + i*Math.cos(Fi+n*2.0/KolKol-1);
-			Y1 = Y + i*Math.sin(Fi+n*2.0/KolKol-1);
-			NomKol = parseInt(X1/10);
-			NomStr = parseInt(Y1/10);
-			if ((NomStr>=0) && (NomStr<Karta.length)) {
-				if ((NomKol>=0) && (NomKol<Karta[NomStr].length)) {
-					if (Karta[NomStr][NomKol]!='.') {
-						Rez[0] = NomKol;
-						Rez[1] = NomStr;
-						Rez[2] = i;
-						};
-					};
-				};
-			};
-		};
-	return Rez;
-}
-
-function WayIsFree(nomKol, nomStr) {
-	var Rez = 1, i, k;
-	for (i = nomStr - 1; i < nomStr + 1; i++) {
-		for (k = nomKol - 1; k < nomKol + 1; k++) {
-			if (Karta[i][k] != '.') { 
-				Rez = 0;
+function WayIsFree(col, row) {
+	let result = 1, i, k;
+	for (i = row - 1; i < row + 1; i++) {
+		for (k = col - 1; k < col + 1; k++) {
+			if (Map[i][k] != '.') { 
+				result = 0;
 			}
 		}
 	}
-	
-	return Rez;
+	return result;
 }
 
-function WinnerRoad(nomKol, nomStr) {
-	var Rez = 0;
-	if ((nomKol + 1 >= pobedaKol) && (nomStr + 2 >= pobedaStr)) {
-		Rez = 1;
+function WinnerRoad(col, row) {
+	let result = 0;
+	if ((col + 1 >= pobedaKol) && (row + 2 >= pobedaStr)) {
+		result = 1;
 	}
-	return Rez;
+	return result;
 }
 
-function Button1Click() {
+function Goals() {
 	if (Button1.value == 'Играть') {
-		document.getElementById('Goals').style.visibility = "hidden";
-		document.getElementById('Movement').style.visibility = "visible";
+		Hide('Goals');
+		Show('Movement');
 		Button1.value = 'Справка';
 		Pause(false);
 	} else {
-		document.getElementById('Goals').style.visibility = "visible";
-		document.getElementById('Movement').style.visibility = "hidden";
+		Show('Goals');
+		Hide('Movement');
 		Button1.value = 'Играть';
 		Pause(true);
 	}
 }
 
-function Button2Click() {
-	var X1,Y1, NomKol,NomStr;
-	X1 = X + 10*Math.cos(Fi);
-	Y1 = Y + 10*Math.sin(Fi);
-	NomKol = parseInt(X1/10);
-	NomStr = parseInt(Y1/10);
-	if (WayIsFree(NomKol, NomStr)) {
+function Forward() {
+	var X1,Y1, col,row;
+	X1 = X + 10 * Math.cos(Fi);
+	Y1 = Y + 10 * Math.sin(Fi);
+	col = parseInt(X1 / 10);
+	row = parseInt(Y1 / 10);
+	if (WayIsFree(col, row)) {
 		X = X1;
 		Y = Y1;
-		if (WinnerRoad(NomKol, NomStr)) {
-			document.getElementById('wonInfo').style.visibility = "visible";
+		if (WinnerRoad(col, row)) {
+			Show('wonInfo');
 		}
-		}
-	RevealScene();
-	};
-
-function Button3Click() {
-	Fi = (Fi - 0.0471).filter(-Math.PI, Math.PI); //Fi - 0.05;
+	}
 	RevealScene();
 }
 
-function Button4Click() {
-	var X1,Y1, NomKol,NomStr;
-	X1 = X - 10*Math.cos(Fi);
-	Y1 = Y - 10*Math.sin(Fi);
-	NomKol = parseInt(X1/10);
-	NomStr = parseInt(Y1/10);
-	if (WayIsFree(NomKol, NomStr)) {
+function Backward() {
+	var X1,Y1, col,row;
+	X1 = X - 10 * Math.cos(Fi);
+	Y1 = Y - 10 * Math.sin(Fi);
+	col = parseInt(X1/10);
+	row = parseInt(Y1/10);
+	if (WayIsFree(col, row)) {
 		X = X1;
 		Y = Y1;
-		}
+	}
 	RevealScene();
 }
 
-function Button5Click() {
-	Fi = (Fi + 0.0471).filter(-Math.PI, Math.PI); //Fi + 0.05;
+function Rotate(degree) {
+	Fi = (Fi + degree).filter(-Math.PI, Math.PI);
+}
+
+function RotateLeft() {
+	Rotate(-0.0471);
+	RevealScene();
+}
+
+function RotateRight() {
+	Rotate(0.0471);
 	RevealScene();
 }
 
 function Reload() {
 	X = startX;
 	Y = startY;
-	document.getElementById('wonInfo').style.visibility = "hidden";
-	document.getElementById('loseInfo').style.visibility = "hidden";
+	HideX(['wonInfo', 'loseInfo', 'Movement']);
 	time = [startTime[0],  startTime[1]];
-	document.getElementById('Timer1').innerText = TimeText();
-	document.getElementById('Goals').style.visibility = "visible";
+	GetById('Timer1').innerText = TimeText();
+	Show('Goals');
 	Button1.value = 'Играть';
 	Pause(true);
 	Fi = -Math.PI/2;
@@ -182,33 +168,37 @@ function Timer() {
 		}
 	}
 	else
-	time[1]--;
+		time[1]--;
 			
-	document.getElementById('Timer1').innerText = TimeText();
+	GetById('Timer1').innerText = TimeText();
 	if (time[1] > 0)
 		timer = setTimeout(Timer, 1000);
 	else {
-		document.getElementById('loseInfo').style.visibility = "visible";
+		Show('loseInfo');
 	}
 }
 
 
-function Klav(Sender) {
+function KeyBoardInput(Sender) {
 	if (pause)
 		return;
 	var code = Sender.keyCode;
 	switch(code) {
 		case 37:
-			Button3Click();
+		case 65:
+			RotateLeft();
 			break;	
 		case 38:
-			Button2Click();
+		case 87:
+			Forward();
 			break;	
 		case 39:
-			Button5Click();
+		case 68:
+			RotateRight();
 			break;	
 		case 40:
-			Button4Click();
+		case 83:
+			Backward();
 			break;	
 		default:
 			break;
@@ -223,11 +213,10 @@ function TimeText() {
 
 function FormCreate() {
 	var i,H;
-	for(i=0;i<KolKol;i++){
-		document.getElementById("Walls").innerHTML += '<div class="self-center" id="K'+i+'" style="grid-column: '+(i+1)+'; width: 100%; height: 100%;"></div>';
+	for(i=0;i<WallColumns;i++){
+		GetById("Walls").innerHTML += '<div class="self-center" id="K'+i+'" style="grid-column: '+(i+1)+'; width: 100%; height: 100%;"></div>';
 	}
-	document.getElementById("Timer1").innerText = TimeText();
-	document.onkeydown = Klav;
+	GetById("Timer1").innerText = TimeText();
+	document.onkeydown = KeyBoardInput;
 	RevealScene();
 }
-//var time = 10;

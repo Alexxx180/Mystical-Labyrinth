@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>Level 1-1</title>
+<link rel="stylesheet" type="text/css" href="styles/total.css">
 <link rel="stylesheet" type="text/css" href="styles/maze1-1.css">
+<script type="text/javascript" src="scripts/total.js"></script>
 <script type="text/javascript" src="scripts/mazeColors.js"></script>
 <script type="text/javascript" src="scripts/maze1-1.js"></script>
 <script type="text/javascript" src="scripts/mazeLogic.js"></script>
@@ -18,13 +20,13 @@
 <!--style="visibility: hidden;"-->
 <div id="Walls" class="grid r1-6 c1-7 walls"></div>
 
-<input id="Button1" type="button" class="r2 c5" value="Играть" onclick="Button1Click()">
+<input id="Button1" type="button" class="r2 c5" value="Играть" onclick="Goals()">
 
 <div id="Movement" class="r4 c4-6 grid moves wh2" style="visibility:hidden;">
-	<input id="Button2" type="button" value="Вперёд"  onclick="Button2Click()" class="c2 wh2">
-	<input id="Button3" type="button" value="Налево"  onclick="Button3Click()" class="r2 wh2">
-	<input id="Button4" type="button" value="Назад"   onclick="Button4Click()" class="r3 c2 wh2">
-	<input id="Button5" type="button" value="Направо" onclick="Button5Click()" class="r2 c3 wh2">
+	<input id="Up"    type="button" value="Вперёд"  onclick="Forward()" class="c2 wh2">
+	<input id="Left"  type="button" value="Налево"  onclick="RotateLeft()" class="r2 wh2">
+	<input id="Down"  type="button" value="Назад"   onclick="Backward()" class="r3 c2 wh2">
+	<input id="Right" type="button" value="Направо" onclick="RotateRight()" class="r2 c3 wh2">
 </div>
 
 <article id="Timer1" class="r2 c2 fs200 wh2 content-center message2"></article>
@@ -32,7 +34,8 @@
 <div id="Goals" class="r3 c4-6 message fs150 wh2">
 	<p class="fs200 center"> Цели: </p>
 	<ul>
-	<li>найти выход до истечения времени</li>
+	<li>найти выход</li>
+	<li>успеть вовремя</li>
 	</ul>
 </div>
 
