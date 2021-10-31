@@ -1,0 +1,160 @@
+@media screen and (min-width: 0.0px) and (min-height: 0.0px) {
+    .fs150 { font-size: 0.01em; }
+    .fs200 { font-size: 0.02em; }
+}
+@media screen and (min-width: 96.0px) and (min-height: 54.0px) {
+    .fs150 { font-size: 0.09em; }
+    .fs200 { font-size: 0.12em; }
+}
+@media screen and (min-width: 192.0px) and (min-height: 108.0px) {
+    .fs150 { font-size: 0.16em; }
+    .fs200 { font-size: 0.22em; }
+}
+@media screen and (min-width: 288.0px) and (min-height: 162.0px) {
+    .fs150 { font-size: 0.24em; }
+    .fs200 { font-size: 0.32em; }
+}
+@media screen and (min-width: 384.0px) and (min-height: 216.0px) {
+    .fs150 { font-size: 0.32em; }
+    .fs200 { font-size: 0.42em; }
+}
+@media screen and (min-width: 480.0px) and (min-height: 270.0px) {
+    .fs150 { font-size: 0.39em; }
+    .fs200 { font-size: 0.52em; }
+}
+@media screen and (min-width: 576.0px) and (min-height: 324.0px) {
+    .fs150 { font-size: 0.46em; }
+    .fs200 { font-size: 0.62em; }
+}
+@media screen and (min-width: 672.0px) and (min-height: 378.0px) {
+    .fs150 { font-size: 0.54em; }
+    .fs200 { font-size: 0.72em; }
+}
+@media screen and (min-width: 768.0px) and (min-height: 432.0px) {
+    .fs150 { font-size: 0.61em; }
+    .fs200 { font-size: 0.82em; }
+}
+@media screen and (min-width: 864.0px) and (min-height: 486.0px) {
+    .fs150 { font-size: 0.69em; }
+    .fs200 { font-size: 0.92em; }
+}
+@media screen and (min-width: 960.0px) and (min-height: 540.0px) {
+    .fs150 { font-size: 0.77em; }
+    .fs200 { font-size: 1.02em; }
+}
+@media screen and (min-width: 1056.0px) and (min-height: 594.0px) {
+    .fs150 { font-size: 0.84em; }
+    .fs200 { font-size: 1.12em; }
+}
+@media screen and (min-width: 1152.0px) and (min-height: 648.0px) {
+    .fs150 { font-size: 0.91em; }
+    .fs200 { font-size: 1.22em; }
+}
+@media screen and (min-width: 1248.0px) and (min-height: 702.0px) {
+    .fs150 { font-size: 0.99em; }
+    .fs200 { font-size: 1.32em; }
+}
+@media screen and (min-width: 1344.0px) and (min-height: 756.0px) {
+    .fs150 { font-size: 1.06em; }
+    .fs200 { font-size: 1.42em; }
+}
+@media screen and (min-width: 1440.0px) and (min-height: 810.0px) {
+    .fs150 { font-size: 1.14em; }
+    .fs200 { font-size: 1.52em; }
+}
+@media screen and (min-width: 1536.0px) and (min-height: 864.0px) {
+    .fs150 { font-size: 1.21em; }
+    .fs200 { font-size: 1.62em; }
+}
+@media screen and (min-width: 1632.0px) and (min-height: 918.0px) {
+    .fs150 { font-size: 1.29em; }
+    .fs200 { font-size: 1.72em; }
+}
+@media screen and (min-width: 1728.0px) and (min-height: 972.0px) {
+    .fs150 { font-size: 1.36em; }
+    .fs200 { font-size: 1.82em; }
+}
+@media screen and (min-width: 1824.0px) and (min-height: 1026.0px) {
+    .fs150 { font-size: 1.44em; }
+    .fs200 { font-size: 1.92em; }
+}
+@media screen and (min-width: 1920.0px) and (min-height: 1080.0px) {
+    .fs150 { font-size: 1.51em; }
+    .fs200 { font-size: 2.02em; }
+}
+@media screen and (min-width: 2016.0px) and (min-height: 1134.0px) {
+    .fs150 { font-size: 1.59em; }
+    .fs200 { font-size: 2.12em; }
+}
+@media screen and (min-width: 2112.0px) and (min-height: 1188.0px) {
+    .fs150 { font-size: 1.67em; }
+    .fs200 { font-size: 2.22em; }
+}
+@media screen and (min-width: 2208.0px) and (min-height: 1242.0px) {
+    .fs150 { font-size: 1.74em; }
+    .fs200 { font-size: 2.32em; }
+}
+@media screen and (min-width: 2304.0px) and (min-height: 1296.0px) {
+    .fs150 { font-size: 1.81em; }
+    .fs200 { font-size: 2.42em; }
+}
+@media screen and (min-width: 2400.0px) and (min-height: 1350.0px) {
+    .fs150 { font-size: 1.89em; }
+    .fs200 { font-size: 2.52em; }
+}
+@media screen and (min-width: 2496.0px) and (min-height: 1404.0px) {
+    .fs150 { font-size: 1.96em; }
+    .fs200 { font-size: 2.62em; }
+}
+@media screen and (min-width: 2592.0px) and (min-height: 1458.0px) {
+    .fs150 { font-size: 2.04em; }
+    .fs200 { font-size: 2.72em; }
+}
+@media screen and (min-width: 2688.0px) and (min-height: 1512.0px) {
+    .fs150 { font-size: 2.11em; }
+    .fs200 { font-size: 2.82em; }
+}
+@media screen and (min-width: 2784.0px) and (min-height: 1566.0px) {
+    .fs150 { font-size: 2.19em; }
+    .fs200 { font-size: 2.92em; }
+}
+@media screen and (min-width: 2880.0px) and (min-height: 1620.0px) {
+    .fs150 { font-size: 2.27em; }
+    .fs200 { font-size: 3.02em; }
+}
+@media screen and (min-width: 2976.0px) and (min-height: 1674.0px) {
+    .fs150 { font-size: 2.34em; }
+    .fs200 { font-size: 3.12em; }
+}
+@media screen and (min-width: 3072.0px) and (min-height: 1728.0px) {
+    .fs150 { font-size: 2.42em; }
+    .fs200 { font-size: 3.22em; }
+}
+@media screen and (min-width: 3168.0px) and (min-height: 1782.0px) {
+    .fs150 { font-size: 2.49em; }
+    .fs200 { font-size: 3.32em; }
+}
+@media screen and (min-width: 3264.0px) and (min-height: 1836.0px) {
+    .fs150 { font-size: 2.56em; }
+    .fs200 { font-size: 3.42em; }
+}
+@media screen and (min-width: 3360.0px) and (min-height: 1890.0px) {
+    .fs150 { font-size: 2.64em; }
+    .fs200 { font-size: 3.52em; }
+}
+@media screen and (min-width: 3456.0px) and (min-height: 1944.0px) {
+    .fs150 { font-size: 2.71em; }
+    .fs200 { font-size: 3.62em; }
+}
+@media screen and (min-width: 3552.0px) and (min-height: 1998.0px) {
+    .fs150 { font-size: 2.79em; }
+    .fs200 { font-size: 3.72em; }
+}
+@media screen and (min-width: 3648.0px) and (min-height: 2052.0px) {
+    .fs150 { font-size: 2.86em; }
+    .fs200 { font-size: 3.82em; }
+}
+@media screen and (min-width: 3744.0px) and (min-height: 2106.0px) {
+    .fs150 { font-size: 2.94em; }
+    .fs200 { font-size: 3.92em; }
+}

@@ -18,9 +18,9 @@ Number.prototype.filter = function(min, max) {
 
 function WayByRay( n ) {
 	let i, X1, Y1, col, row;
-	Rez = [ -1, -1,500 ];
+	result = [ -1, -1,500 ];
 	for(i = 0; i < 500; i++){
-		if (Rez[0]==-1) {
+		if (result[0]==-1) {
 			let calc = Fi + n * 2.0 / WallColumns - 1;
 			X1 = X + i * Math.cos(calc);
 			Y1 = Y + i * Math.sin(calc);
@@ -29,15 +29,15 @@ function WayByRay( n ) {
 			if ((row >= 0) && (row < Map.length)) {
 				if ((col>=0) && (col < Map[row].length)) {
 					if (Map[row][col] != '.') {
-						Rez[0] = row;
-						Rez[1] = col;
-						Rez[2] = i;
+						result[0] = row;
+						result[1] = col;
+						result[2] = i;
 					}
 				}
 			}
 		}
 	}
-	return Rez;
+	return result;
 }
 
 function RevealScene() {
@@ -74,7 +74,7 @@ function WayIsFree(col, row) {
 
 function WinnerRoad(col, row) {
 	let result = 0;
-	if ((col + 1 >= pobedaKol) && (row + 2 >= pobedaStr)) {
+	if ((col + 1 >= wonCol) && (row + 2 >= wonRow)) {
 		result = 1;
 	}
 	return result;

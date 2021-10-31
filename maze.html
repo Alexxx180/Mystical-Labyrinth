@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <title>Level 1-1</title>
 <link rel="stylesheet" type="text/css" href="styles/total.css">
-<link rel="stylesheet" type="text/css" href="styles/maze1-1.css">
+<link rel="stylesheet" type="text/css" href="styles/mazes.css">
+<link rel="stylesheet" type="text/css" href="styles/media.css">
 <script type="text/javascript" src="scripts/total.js"></script>
 <script type="text/javascript" src="scripts/mazeColors.js"></script>
-<script type="text/javascript" src="scripts/maze1-1.js"></script>
+<script type="text/javascript" src="scripts/levels/maze1-1.js"></script>
 <script type="text/javascript" src="scripts/mazeLogic.js"></script>
 </head>
 <body bgcolor="#000000" onload="FormCreate()" class="abs grid all wh2">
@@ -17,7 +18,6 @@
 <div class="ground r2 wh2"></div>	
 </div>
 
-<!--style="visibility: hidden;"-->
 <div id="Walls" class="grid r1-6 c1-7 walls"></div>
 
 <input id="Button1" type="button" class="r2 c5" value="Играть" onclick="Goals()">
@@ -31,23 +31,25 @@
 
 <article id="Timer1" class="r2 c2 fs200 wh2 content-center message2"></article>
 
-<div id="Goals" class="r3 c4-6 message fs150 wh2">
-	<p class="fs200 center"> Цели: </p>
-	<ul>
-	<li>найти выход</li>
-	<li>успеть вовремя</li>
+<div id="Goals" class="r3 c4-6 message wh2">
+	<p class="fs200 center">Goals</p> <!--Цели:-->
+	<!--<p class="fs150 center">find exit</p>
+	<p class="fs150 center">get in time</p>-->
+	<ul class="fs150 center" style="padding: 0px;">
+		<li>find exit</li> <!--найти выход-->
+		<li>get in time</li> <!--успеть вовремя-->
 	</ul>
 </div>
 
 <div id="wonInfo" class="message r1-6 c1-7 fs150 center" style="visibility: hidden;">
-<p class="fs200">Поздравляем, вы прошли лабиринт!</p>
-<p>Может еще разок?</p>
-<button onClick="Reload()">Начать заново</p>
+	<p class="fs200">Congratulations, you completed the maze!</p> <!--Поздравляем, вы прошли лабиринт!-->
+	<p>Maybe, another round?</p> <!--Может еще разок?-->
+	<button class="fs200" onClick="Reload()">Start over</p> <!--Начать заново-->
 </div>
 
 <div id="loseInfo" class="message r1-6 c1-7 fs150 center" style="visibility: hidden;">
-<p class="fs200">Увы, время вышло!</p>
-<button onClick="Reload()">Начать заново</p>
+<p class="fs200">Ooops, it's too late!</p> <!--Увы, время вышло!-->
+<button class="fs200" onClick="Reload()">Start over</p>
 </div>
 
 

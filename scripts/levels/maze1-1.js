@@ -1,7 +1,7 @@
 var startX = 395;
 var startY = 215;
-var pobedaKol = 78;
-var pobedaStr = 34;
+var wonCol = 78;
+var wonRow = 34;
 
 var startTime = [1, 0];
 
