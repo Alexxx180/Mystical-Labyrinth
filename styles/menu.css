@@ -1,0 +1,9 @@
+.main-menu {
+  grid-template-rows: repeat(13, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.arial {
+  font-family: arial;
+  font-weight: bold;
+}

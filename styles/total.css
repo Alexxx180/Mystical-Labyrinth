@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .wh1 {
   width: 100vw;
   height: 100vh;
@@ -40,6 +44,34 @@
   grid-row: 5;
 }
 
+.r6 {
+  grid-row: 6;
+}
+
+.r7 {
+  grid-row: 7;
+}
+
+.r8 {
+  grid-row: 8;
+}
+
+.r9 {
+  grid-row: 9;
+}
+
+.r10 {
+  grid-row: 10;
+}
+
+.r11 {
+  grid-row: 11;
+}
+
+.r12 {
+  grid-row: 12;
+}
+
 .c2 {
   grid-column: 2;
 }
@@ -70,9 +102,24 @@
   grid-row-end: 7;
 }
 
+.r1-14 {
+  grid-row-start: 1;
+  grid-row-end: 14;
+}
+
 .c1-7 {
   grid-column-start: 1;
   grid-column-end: 7;
+}
+
+.c1-8 {
+  grid-column-start: 1;
+  grid-column-end: 8;
+}
+
+.c3-6 {
+  grid-column-start: 3;
+  grid-column-end: 6;
 }
 
 .c4-6 {
@@ -120,11 +167,24 @@
   background: rgb(255, 255, 200);
 }
 
-.yellow {
-  background: rgb(255, 255, 200);
-  border-radius: 10%;
+.ceiling {
+  background: linear-gradient(rgb(255, 255, 255), rgb(0, 0, 0));
 }
 
-.yellow:hover {
-  background: rgb(200, 255, 200);
+.ground {
+  background: linear-gradient(rgb(0, 0, 0), rgb(100, 50, 0));
+}
+
+.back {
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: black;
 }

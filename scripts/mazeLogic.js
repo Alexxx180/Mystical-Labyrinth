@@ -148,6 +148,7 @@ function Reload() {
 	GetById('Timer1').innerText = TimeText();
 	Show('Goals');
 	GoalsInfo.value = 'Играть';
+	GoalsInfo.src = "images/Right.svg";
 	Pause(true);
 	Fi = -Math.PI/2;
 	RevealScene();
