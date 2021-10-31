@@ -175,7 +175,7 @@ function Timer() {
 		time[1]--;
 			
 	GetById('Timer1').innerText = TimeText();
-	if (time[1] > 0)
+	if (time[1] > 0 || time[0] > 0)
 		timer = setTimeout(Timer, 1000);
 	else {
 		Show('loseInfo');
