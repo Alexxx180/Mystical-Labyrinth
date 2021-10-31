@@ -7,30 +7,34 @@
 <script type="text/javascript" src="scripts/maze1-1.js"></script>
 <script type="text/javascript" src="scripts/mazeLogic.js"></script>
 </head>
-<body bgcolor="#000000" onload="FormCreate()">
+<body bgcolor="#000000" onload="FormCreate()" class="abs grid all wh2">
 
-<canvas id="Image1" width="1800" height="1000" style="position:absolute; left:0px; top:0px; "></canvas>
-
-<input id="Button1" type="button" value="Играть" onclick="Button1Click()" style="position:absolute; left:1700px; top: 10px; width:80px; height:30px; ">
-<input id="Button2" type="button" value="Вперёд"  onclick="Button2Click()" style="position:absolute; left:1620px; top:870px; width:80px; height:30px; ">
+<div class="back wh2 grid r1-6 c1-7">
+<div class="ceiling wh2"></div>
+<div class="ground r2 wh2"></div>	
+</div>
 
 <div id="Walls">
 
 </div>
 
-<div class="ceiling"></div>
-<div class="ground"></div>
+
 
 <input id="Button1" type="button" value="Играть" onclick="Button1Click()" style="position:absolute; left:1700px; top: 10px; width:80px; height:30px; ">
-<input id="Button2" type="button" value="Вперёд"  onclick="Button2Click()" style="position:absolute; left:1620px; top:870px; width:80px; height:30px; ">
-<input id="Button3" type="button" value="Налево"  onclick="Button3Click()" style="position:absolute; left:1540px; top:900px; width:80px; height:30px; ">
-<input id="Button4" type="button" value="Назад"   onclick="Button4Click()" style="position:absolute; left:1620px; top:930px; width:80px; height:30px; ">
-<input id="Button5" type="button" value="Направо" onclick="Button5Click()" style="position:absolute; left:1700px; top:900px; width:80px; height:30px; ">
+
+<div class="r4 c4 grid moves wh2">
+	<input id="Button2" type="button" value="Вперёд"  onclick="Button2Click()" class="c2 wh2">
+	<input id="Button3" type="button" value="Налево"  onclick="Button3Click()" class="r2 wh2">
+	<input id="Button4" type="button" value="Назад"   onclick="Button4Click()" class="r3 c2 wh2">
+	<input id="Button5" type="button" value="Направо" onclick="Button5Click()" class="r2 c3 wh2">
+</div>
+
+
 
 <p id="Timer1" style="position:absolute; left:20px; top:15px; padding:5px; background:rgba(0, 0, 0, 0.5); color:rgb(255, 255, 255); font-size: 1.5em;"></p>
 	
-<div id="panel1" style="position:absolute; left:15px; top: 100px; width:1745px; height:840px; background:rgb(220,220,220); font-size:24px; text-align: center; padding:10px">
-<p style="font-size:48px; "> Приветствуем вас в игре "Мистический лабиринт"</p>
+<div id="panel1" class="r2 c2 message fs100 wh2 pad10">
+<p class="fs150"> Приветствуем вас в игре "Мистический лабиринт"</p>
 <p>Найдите выход из лабиринта до истечения времени, чтобы победить!</p><br/>
 <p>Передвижение:</p>
 <p>Вперед - Кнопка "Вперед" / Стрелка вверх</p>
@@ -39,15 +43,16 @@
 <p>Налево - Кнопка "Налево" / Стрелка влево</p>
 <p>Направо - Кнопка "Направо" / Стрелка вправо</p>
 <p></p>
+</div>
 
-<div id="wonInfo" style="position:fixed; left:-2000px; top: 0px; width:1800px; height:1000px; background:rgb(220,220,220); text-align: center; font-size:48px; padding:10px">
-<p style="font-size:76px; ">Поздравляем, вы прошли лабиринт!</p>
+<div id="wonInfo" class="fix message r1-6 fs150 pad10" style="visibility: hidden;">
+<p class="fs200">Поздравляем, вы прошли лабиринт!</p>
 <p>Может еще разок?</p>
 <button onClick="Reload()">Начать заново</p>
 </div>
 
-<div id="loseInfo" style="position:fixed; left:-2000px; top: 0px; width:1800px; height:1000px; background:rgb(220,220,220); text-align: center; font-size:48px;  padding:10px">
-<p style="font-size:76px; ">Увы, время вышло!</p>
+<div id="loseInfo" class="fix message r1-6 fs150 pad10" style="visibility: hidden;">
+<p class="fs200">Увы, время вышло!</p>
 <button onClick="Reload()">Начать заново</p>
 </div>
 
