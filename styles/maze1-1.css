@@ -97,11 +97,6 @@ body {
   grid-row-end: 6;
 }
 
-.r3-5 {
-  grid-row-start: 3;
-  grid-row-end: 5;
-}
-
 .r3-7 {
   grid-row-start: 3;
   grid-row-end: 7;
