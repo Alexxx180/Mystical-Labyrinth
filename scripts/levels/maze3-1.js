@@ -1,5 +1,5 @@
 var startX = 1595; //795 - center
-var startY = 795; //395 - center
+var startY = 815; //395 - center
 var wonCol = 318;
 var wonRow = 156;
 var startTime = [5, 0];
