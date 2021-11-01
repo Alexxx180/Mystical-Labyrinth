@@ -74,7 +74,8 @@ function WayIsFree(col, row) {
 
 function WinnerRoad(col, row) {
 	let result = 0;
-	if ((col + 1 >= wonCol) && (row + 2 >= wonRow)) {
+	if ((col >= wonCol - 2) && (col < wonCol + 2)
+		&& (row >= wonRow - 2) && (row < wonRow + 2)) {
 		result = 1;
 	}
 	return result;
@@ -147,7 +148,7 @@ function Reload() {
 	time = [startTime[0],  startTime[1]];
 	GetById('Timer1').innerText = TimeText();
 	Show('Goals');
-	GoalsInfo.value = 'Играть';
+	GoalsInfo.value = 'Play';
 	GoalsInfo.src = "images/Right.svg";
 	Pause(true);
 	Fi = -Math.PI/2;

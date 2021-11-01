@@ -1,6 +1,6 @@
 var startX = 395;
 var startY = 215;
-var wonCol = 35;
+var wonCol = 37;
 var wonRow = 38;
 
 var startTime = [1, 20];
