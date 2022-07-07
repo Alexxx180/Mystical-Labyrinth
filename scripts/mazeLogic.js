@@ -139,19 +139,6 @@ function RotateRight() {
 	RevealScene();
 }
 
-function Reload() {
-	X = startX;
-	Y = startY;
-	HideX(['wonInfo', 'loseInfo', 'Movement']);
-	time = [startTime[0],  startTime[1]];
-	GetById('Timer1').innerText = TimeText();
-	GoalsInfo.value = 'Play';
-	GoalsInfo.src = "images/Right.svg";
-	Pause(true);
-	Fi = -Math.PI/2;
-	RevealScene();
-}
-
 function Pause(b) {
 	pause = b;
 	if (!pause)
