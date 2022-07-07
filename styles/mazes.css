@@ -5,7 +5,7 @@
 
 .walls {
   grid-template-rows: 1fr;
-  grid-template-columns: repeat(900, 1fr);
+  grid-template-columns: repeat(300, 1fr);
 }
 
 .yellow {
