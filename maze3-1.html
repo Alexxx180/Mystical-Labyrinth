@@ -20,7 +20,8 @@
 
 <div id="Walls" class="grid r1-6 c1-7 walls"></div>
 
-<input id="GoalsInfo" type="image" src="images/Right.svg" class="r2 c5 yellow wh2" value="Play" onclick="Goals()">
+<input id="GoalsInfo" title="Find exit and get in time!" type="image"
+       src="images/Right.svg" class="r2 c5 yellow wh2" value="Play" onclick="Goals()">
 
 <div id="Movement" class="r4 c4-6 grid moves wh2" style="visibility:hidden;">
 	<input id="Up"    type="image" src="images/Up.svg"    onclick="Forward()"     class="c2 wh2 white"/>
@@ -30,26 +31,17 @@
 </div>
 
 <article id="Timer1" class="r2 c2 fs200 wh2 content-center message2"></article>
-
-<div id="Goals" class="r3 c4-6 message wh2">
-	<p class="fs200 center">Goals</p> <!--Цели:-->
-	<ul class="fs150 center" style="padding: 0px;">
-		<li>find exit</li> <!--найти выход-->
-		<li>get in time</li> <!--успеть вовремя-->
-	</ul>
-</div>
-
+	
 <div id="wonInfo" class="message r1-6 c1-7 fs150 center" style="visibility: hidden;">
-	<p class="fs200">Congratulations, you completed the maze!</p> <!--Поздравляем, вы прошли лабиринт!-->
-	<p>Maybe, another round?</p> <!--Может еще разок?-->
-	<button class="fs200" onClick="Reload()">Start over</button> <!--Начать заново-->
+	<p class="fs200">Congratulations, you completed the maze!</p>
+	<p>Maybe, another round?</p>
+	<a href="maze3-1.html" class="button fs200 white content-center">Start over</a>
 	<a href="index.html" class="button fs200 white content-center">Level select</a>
 </div>
 
 <div id="loseInfo" class="message r1-6 c1-7 fs150 center" style="visibility: hidden;">
-	<p class="fs200">Ooops, it's too late!</p> <!--Увы, время вышло!-->
-	<button class="fs200" onClick="Reload()">Start over</button>
-	<br/>
+	<p class="fs200">Ooops, it's too late!</p>
+	<a href="maze3-1.html" class="button fs200 white content-center">Start over</a>
 	<a href="index.html" class="button fs200 white content-center">Level select</a>
 </div>
 
