@@ -83,13 +83,11 @@ function WinnerRoad(col, row) {
 
 function Goals() {
 	if (GoalsInfo.value == 'Play') {
-		Hide('Goals');
 		Show('Movement');
 		GoalsInfo.value = 'Info';
 		GoalsInfo.src = "images/Info.svg";
 		Pause(false);
 	} else {
-		Show('Goals');
 		Hide('Movement');
 		GoalsInfo.value = 'Play';
 		GoalsInfo.src = "images/Right.svg";
@@ -147,7 +145,6 @@ function Reload() {
 	HideX(['wonInfo', 'loseInfo', 'Movement']);
 	time = [startTime[0],  startTime[1]];
 	GetById('Timer1').innerText = TimeText();
-	Show('Goals');
 	GoalsInfo.value = 'Play';
 	GoalsInfo.src = "images/Right.svg";
 	Pause(true);
