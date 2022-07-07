@@ -1,4 +1,4 @@
-WallColumns = 900;
+WallColumns = 300; //900
 
 var X = startX;
 var Y = startY;
