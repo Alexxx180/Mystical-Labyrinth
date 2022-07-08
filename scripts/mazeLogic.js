@@ -83,12 +83,12 @@ function WinnerRoad(col, row) {
 
 function Goals() {
 	if (Start.value == 'Play') {
-		Show('Movement');
+		ShowX(['Up','Left','Down','Right']);
 		Start.value = 'Info';
 		Start.src = "images/Info.svg";
 		Pause(false);
 	} else {
-		Hide('Movement');
+		HideX(['Up','Left','Down','Right']);
 		Start.value = 'Play';
 		Start.src = "images/Right.svg";
 		Pause(true);
