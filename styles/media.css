@@ -1,10 +1,18 @@
-@media screen and (min-width: 0.0px) and (min-height: 0.0px) {
-    .fs150 { font-size: 0.01em; }
-    .fs200 { font-size: 0.02em; }
+@media (orientation: portrait) {
+    .all {
+        grid-template-rows: 5% 10% 50% 30% 5%;
+        grid-template-columns: 2.5% 95% 2.5%;
+    }
+    
+    .movement {
+        grid-row: 4;
+        grid-column: 2;
+    }
 }
-@media screen and (min-width: 96.0px) and (min-height: 54.0px) {
-    .fs150 { font-size: 0.09em; }
-    .fs200 { font-size: 0.12em; }
+
+@media screen and (min-width: 0.0px) and (min-height: 0.0px) {
+    .fs150 { font-size: 0.1em; }
+    .fs200 { font-size: 0.15em; }
 }
 @media screen and (min-width: 192.0px) and (min-height: 108.0px) {
     .fs150 { font-size: 0.16em; }
