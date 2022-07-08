@@ -82,15 +82,15 @@ function WinnerRoad(col, row) {
 }
 
 function Goals() {
-	if (GoalsInfo.value == 'Play') {
+	if (Start.value == 'Play') {
 		Show('Movement');
-		GoalsInfo.value = 'Info';
-		GoalsInfo.src = "images/Info.svg";
+		Start.value = 'Info';
+		Start.src = "images/Info.svg";
 		Pause(false);
 	} else {
 		Hide('Movement');
-		GoalsInfo.value = 'Play';
-		GoalsInfo.src = "images/Right.svg";
+		Start.value = 'Play';
+		Start.src = "images/Right.svg";
 		Pause(true);
 	}
 }
