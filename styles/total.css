@@ -2,10 +2,6 @@ body {
   margin: 0;
 }
 
-img {
-  pointer-events: none;
-}
-
 .wh1 {
   width: 100vw;
   height: 100vh;

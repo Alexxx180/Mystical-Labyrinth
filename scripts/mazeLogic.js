@@ -1,4 +1,4 @@
-WallColumns = 300; //900
+WallColumns = 300;
 
 var X = startX;
 var Y = startY;
@@ -7,6 +7,9 @@ var pause = true;
 
 var time = [startTime[0],  startTime[1]];
 var timer;
+
+var repeatTimer = false;
+var repeatDuration = 50;
 
 Number.prototype.clamp = function(min, max) {
   return Math.min(Math.max(this, min), max);
@@ -82,15 +85,15 @@ function WinnerRoad(col, row) {
 }
 
 function Goals() {
-	if (GoalsInfo.value == 'Play') {
-		Show('Movement');
-		GoalsInfo.value = 'Info';
-		GoalsInfo.src = "images/Info.svg";
+	if (Start.value == 'Play') {
+		ShowX(['Up','Left','Down','Right']);
+		Start.value = 'Info';
+		Start.src = "images/Info.svg";
 		Pause(false);
 	} else {
-		Hide('Movement');
-		GoalsInfo.value = 'Play';
-		GoalsInfo.src = "images/Right.svg";
+		HideX(['Up','Left','Down','Right']);
+		Start.value = 'Play';
+		Start.src = "images/Right.svg";
 		Pause(true);
 	}
 }
@@ -200,16 +203,76 @@ function TimeText() {
 	return time[0] + ':' + parseInt(time[1] / 10) + '' + (time[1] % 10);
 }
 
+function ClearMove(event) {
+	if (repeatTimer)
+	{
+		clearInterval(repeatTimer);
+		repeatTimer = false;
+	}
+}
+
+function ForwardRepeat(event) {
+	if (!repeatTimer)
+        repeatTimer = setInterval(Forward, repeatDuration);
+}
+
+function LeftRepeat(event) {
+    if (!repeatTimer)
+        repeatTimer = setInterval(RotateLeft, repeatDuration);
+}
+
+function RightRepeat(event) {
+    if (!repeatTimer)
+        repeatTimer = setInterval(RotateRight, repeatDuration);
+}
+
+function BackwardRepeat(event) {
+    if (!repeatTimer)
+        repeatTimer = setInterval(Backward, repeatDuration);
+}
+
+function SetMovementEvents() {
+    GetById('Up').ontouchstart = ForwardRepeat;
+	GetById('Up').addEventListener('mousedown', ForwardRepeat);
+    
+	GetById('Left').ontouchstart = LeftRepeat;
+	GetById('Left').addEventListener('mousedown', LeftRepeat);
+    
+	GetById('Right').ontouchstart = RightRepeat;
+	GetById('Right').addEventListener('mousedown', RightRepeat);
+    
+	GetById('Down').ontouchstart = BackwardRepeat;
+	GetById('Down').addEventListener('mousedown', BackwardRepeat);
+}
+
+function SetClearEvent(elements) {
+    for(let i = 0; i < elements.length; i++) {
+		GetById(elements[i]).ontouchend = ClearMove;
+        GetById(elements[i]).ontouchmove =  ClearMove;
+        GetById(elements[i]).ontouchcancel =  ClearMove;
+        GetById(elements[i]).addEventListener('mouseup', ClearMove);
+        GetById(elements[i]).addEventListener('mousemove', ClearMove);
+	}
+}
+
 function FormCreate() {
-	var i,H;
-	for(i=0;i<WallColumns;i++){
-		GetById("Walls").innerHTML += '<div class="self-center" id="K'+i+'" style="grid-column: '+(i+1)+'; width: 100%; height: 100%;"></div>';
+	for(let i = 0; i < WallColumns; i++) {
+        let block = 'class="self-center"';
+        let style = 'style="grid-column: '+(i+1)+'; width: 100%; height: 100%;"';
+        
+		GetById("Walls").innerHTML += '<div id="K'+i+'" '+block+' '+style+'></div>';
 	}
 	GetById("Timer1").innerText = TimeText();
-	GetById('Up').ontouchstart  = Forward;
-	GetById('Left').ontouchstart  = RotateLeft;
-	GetById('Right').ontouchstart  = RotateRight;
-	GetById('Down').ontouchstart  = Backward;
+    
+    SetMovementEvents();
+    SetClearEvent(['Up','Left','Down','Right']);
+    
 	document.onkeydown = KeyBoardInput;
 	RevealScene();
 }
+
+window.oncontextmenu = function(event) {
+     event.preventDefault();
+     event.stopPropagation();
+     return false;
+};

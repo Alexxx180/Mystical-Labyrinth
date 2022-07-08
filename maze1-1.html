@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Level 1-1</title>
-<link rel="stylesheet" type="text/css" href="styles/total.css">
-<link rel="stylesheet" type="text/css" href="styles/mazes.css">
-<link rel="stylesheet" type="text/css" href="styles/media.css">
-<script type="text/javascript" src="scripts/total.js"></script>
-<script type="text/javascript" src="scripts/mazeColors.js"></script>
-<script type="text/javascript" src="scripts/levels/maze1-1.js"></script>
-<script type="text/javascript" src="scripts/mazeLogic.js"></script>
+    <meta charset="utf-8">
+    <title>Level 1-1</title>
+    
+    <link rel="stylesheet" type="text/css" href="styles/total.css">
+    <link rel="stylesheet" type="text/css" href="styles/mazes.css">
+    
+    <script type="text/javascript" src="scripts/total.js"></script>
+    <script type="text/javascript" src="scripts/mazeColors.js"></script>
+    <script type="text/javascript" src="scripts/levels/maze1-1.js"></script>
+    <script type="text/javascript" src="scripts/mazeLogic.js"></script>
 </head>
-<body onload="FormCreate()" class="abs grid all wh2">
+<body onload="FormCreate()" class="abs wh2">
 
-<div class="back wh2 grid r1-6 c1-7">
-<div class="ceiling wh2"></div>
-<div class="ground r2 wh2"></div>	
+<div class="abs grid back wh2">
+    <div class="ceiling wh2"></div>
+    <div class="ground r2 wh2"></div>
 </div>
 
-<div id="Walls" class="grid r1-6 c1-7 walls"></div>
-
-<input id="GoalsInfo" title="Find exit and get in time!" type="image"
-       src="images/Right.svg" class="r2 c5 yellow wh2" value="Play" onclick="Goals()">
-
-<div id="Movement" class="r4 c4-6 grid moves wh2" style="visibility:hidden;">
-	<input id="Up"    type="image" src="images/Up.svg"    onclick="Forward()"     class="c2 wh2 white"/>
-	<input id="Left"  type="image" src="images/Left.svg"  onclick="RotateLeft()"  class="r2 wh2 white" />
-	<input id="Down"  type="image" src="images/Down.svg"  onclick="Backward()"    class="r3 c2 wh2 white" />
-	<input id="Right" type="image" src="images/Right.svg" onclick="RotateRight()" class="r2 c3 wh2 white" />
+<div id="Walls" class="abs grid walls wh2"></div>
+	
+<div id="GamePlay" class="abs grid all wh2">
+    <h1 id="Timer1" class="timer wh2 content-center message2"></h1>
+    
+    <div id="Movement" class="movement grid moves wh2">
+        <input id="Up"    style="visibility:hidden;" type="image" src="images/Up.svg"    class="c2 wh2 white"/>
+        <input id="Left"  style="visibility:hidden;" type="image" src="images/Left.svg"  class="r2 wh2 white" />
+        <input id="Down"  style="visibility:hidden;" type="image" src="images/Down.svg"  class="r3 c2 wh2 white" />
+        <input id="Right" style="visibility:hidden;" type="image" src="images/Right.svg" class="r2 c3 wh2 white" />
+        <input id="Start" type="image" src="images/Right.svg" onclick="Goals()" 
+               class="r2 c2 yellow wh2" value="Play" title="Find exit and get in time!">
+    </div>
 </div>
 
-<article id="Timer1" class="r2 c2 fs200 wh2 content-center message2"></article>
-
-<div id="wonInfo" class="message r1-6 c1-7 fs150 center" style="visibility: hidden;">
-	<p class="fs200">Congratulations, you completed the maze!</p>
-	<p>Maybe, another round?</p>
-	<a href="maze1-1.html" class="button fs200 white content-center">Start over</a>
-	<a href="index.html" class="button fs200 white content-center">Level select</a>
+<div id="wonInfo" class="abs message center wh2" style="visibility: hidden;">
+    <h1>Congratulations, you completed the maze!</h1>
+    <h2>Maybe, another round?</h2>
+    <h2><a href="maze1-1.html" class="button white content-center">Start over</a></h2>
+    <h2><a href="index.html" class="button white content-center">Level select</a></h2>
 </div>
-
-<div id="loseInfo" class="message r1-6 c1-7 fs150 center" style="visibility: hidden;">
-	<p class="fs200">Ooops, it's too late!</p>
-	<a href="maze1-1.html" class="button fs200 white content-center">Start over</a>
-	<a href="index.html" class="button fs200 white content-center">Level select</a>
+    
+<div id="loseInfo" class="abs message center wh2" style="visibility: hidden;">
+    <h1>Ooops, it's too late!</h1>
+    <h2><a href="maze1-1.html" class="button white content-center">Start over</a></h2>
+    <h2><a href="index.html" class="button white content-center">Level select</a></h2>
 </div>
 
 </body>
