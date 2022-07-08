@@ -203,32 +203,62 @@ function TimeText() {
 	return time[0] + ':' + parseInt(time[1] / 10) + '' + (time[1] % 10);
 }
 
-function ClearMove() {
+function ClearMove(event) {
 	if (repeatTimer)
 	{
 		clearInterval(repeatTimer);
 		repeatTimer = false;
 	}
+    var e = event || window.event;
+    e.preventDefault && e.preventDefault();
+    e.stopPropagation && e.stopPropagation();
+    e.cancelBubble = true;
+    e.returnValue = false;
+    return false;
 }
 
-function ForwardRepeat() {
+function ForwardRepeat(event) {
 	if (!repeatTimer)
         repeatTimer = setInterval(Forward, repeatDuration);
+    var e = event || window.event;
+    e.preventDefault && e.preventDefault();
+    e.stopPropagation && e.stopPropagation();
+    e.cancelBubble = true;
+    e.returnValue = false;
+    return false;
 }
 
-function LeftRepeat() {
+function LeftRepeat(event) {
     if (!repeatTimer)
         repeatTimer = setInterval(RotateLeft, repeatDuration);
+    var e = event || window.event;
+    e.preventDefault && e.preventDefault();
+    e.stopPropagation && e.stopPropagation();
+    e.cancelBubble = true;
+    e.returnValue = false;
+    return false;
 }
 
-function RightRepeat() {
+function RightRepeat(event) {
     if (!repeatTimer)
         repeatTimer = setInterval(RotateRight, repeatDuration);
+    var e = event || window.event;
+    e.preventDefault && e.preventDefault();
+    e.stopPropagation && e.stopPropagation();
+    e.cancelBubble = true;
+    e.returnValue = false;
+    return false;
 }
 
-function BackwardRepeat() {
+function BackwardRepeat(event) {
     if (!repeatTimer)
         repeatTimer = setInterval(Backward, repeatDuration);
+    var e = event || window.event;
+    e.preventDefault && e.preventDefault();
+    e.stopPropagation && e.stopPropagation();
+    e.cancelBubble = true;
+    e.returnValue = false;
+    return false;
 }
 
 function SetMovementEvents() {
@@ -266,9 +296,3 @@ function FormCreate() {
 	document.onkeydown = KeyBoardInput;
 	RevealScene();
 }
-
-window.oncontextmenu = function(event) {
-     event.preventDefault();
-     event.stopPropagation();
-     return false;
-};
