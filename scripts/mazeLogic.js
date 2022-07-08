@@ -8,8 +8,8 @@ var pause = true;
 var time = [startTime[0],  startTime[1]];
 var timer;
 
-var repeatTimers = [];
-var repeatDuration = 250;
+var repeatTimer;
+var repeatDuration = 50;
 
 Number.prototype.clamp = function(min, max) {
   return Math.min(Math.max(this, min), max);
@@ -203,42 +203,28 @@ function TimeText() {
 	return time[0] + ':' + parseInt(time[1] / 10) + '' + (time[1] % 10);
 }
 
-function ClearMove(no) {
-	if (repeatTimers[no])
-	    clearInterval(repeatTimers[no]);
+function ClearMove() {
+	if (repeatTimer)
+	    clearInterval(repeatTimer);
 }
 
-/*function ForwardRepeat() {
-    repeatTimer = setInterval(Forward, repeatDuration);
+function RepeatMove(move) {
+	if (!repeatTimer)
+	    repeatTimer = setInterval(move, repeatDuration);
 }
 
-function LeftRepeat() {
-    repeatTimer = setInterval(RotateLeft, repeatDuration);
-}
-
-function RightRepeat() {
-    repeatTimer = setInterval(RotateRight, repeatDuration);
-}
-
-function BackwardRepeat() {
-    repeatTimer = setInterval(Backward, repeatDuration);
-}*/
-
-function RepeatMove(no, move) {
-    repeatTimers[no] = setInterval(move, repeatDuration);
-}
-
-function SetMovementEvents(elements, events) {
+function SetMovementEvents(elements) {
+    let events = [Forward, RotateLeft, Backward, RotateRight];
     for(let i = 0; i < elements.length; i++) {
-		GetById(elements[i]).addEventListener('touchstart', RepeatMove, i, events[i]);
-        GetById(elements[i]).addEventListener('mousedown', RepeatMove, i, events[i]);
+		GetById(elements[i]).addEventListener('touchstart', RepeatMove, events[i]);
+        GetById(elements[i]).addEventListener('mousedown', RepeatMove, events[i]);
 	}
 }
 
 function SetClearEvent(elements) {
     for(let i = 0; i < elements.length; i++) {
-		GetById(elements[i]).addEventListener('touchend', ClearMove, i);
-        GetById(elements[i]).addEventListener('mouseup', ClearMove, i);
+		GetById(elements[i]).addEventListener('touchend', ClearMove);
+        GetById(elements[i]).addEventListener('mouseup', ClearMove);
 	}
 }
 
@@ -248,9 +234,7 @@ function FormCreate() {
 	}
 	GetById("Timer1").innerText = TimeText();
     
-    SetMovementEvents(['Up','Left','Down','Right'],
-         [Forward, RotateLeft, Backward, RotateRight]);
-    
+    SetMovementEvents(['Up','Left','Down','Right']);
     SetClearEvent(['Up','Left','Down','Right']);
     
 	document.onkeydown = KeyBoardInput;
