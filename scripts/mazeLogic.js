@@ -259,11 +259,14 @@ function BackwardRepeat(event) {
 function SetMovementEvents() {
     GetById('Up').ontouchstart = ForwardRepeat;
 	GetById('Up').addEventListener('mousedown', ForwardRepeat);
+    
 	GetById('Left').ontouchstart = LeftRepeat;
 	GetById('Left').addEventListener('mousedown', LeftRepeat);
-	GetById('Right').ontouchstart = RightRepeat);
+    
+	GetById('Right').ontouchstart = RightRepeat;
 	GetById('Right').addEventListener('mousedown', RightRepeat);
-	GetById('Down').ontouchstart = BackwardRepeat);
+    
+	GetById('Down').ontouchstart = BackwardRepeat;
 	GetById('Down').addEventListener('mousedown', BackwardRepeat);
 }
 
