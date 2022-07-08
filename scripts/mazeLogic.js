@@ -209,50 +209,55 @@ function ClearMove(event) {
 		clearInterval(repeatTimer);
 		repeatTimer = false;
 	}
-    event.preventDefault();
-    event.stopPropagation();
-    event.cancelBubble = true;
-    event.returnValue = false;
+    var e = event || window.event;
+    e.preventDefault && e.preventDefault();
+    e.stopPropagation && e.stopPropagation();
+    e.cancelBubble = true;
+    e.returnValue = false;
     return false;
 }
 
 function ForwardRepeat(event) {
 	if (!repeatTimer)
         repeatTimer = setInterval(Forward, repeatDuration);
-    event.preventDefault();
-    event.stopPropagation();
-    event.cancelBubble = true;
-    event.returnValue = false;
+    var e = event || window.event;
+    e.preventDefault && e.preventDefault();
+    e.stopPropagation && e.stopPropagation();
+    e.cancelBubble = true;
+    e.returnValue = false;
     return false;
 }
 
 function LeftRepeat(event) {
     if (!repeatTimer)
         repeatTimer = setInterval(RotateLeft, repeatDuration);
-    event.preventDefault();
-    event.stopPropagation();
-    event.cancelBubble = true;
-    event.returnValue = false;
+    var e = event || window.event;
+    e.preventDefault && e.preventDefault();
+    e.stopPropagation && e.stopPropagation();
+    e.cancelBubble = true;
+    e.returnValue = false;
     return false;
 }
 
 function RightRepeat(event) {
     if (!repeatTimer)
         repeatTimer = setInterval(RotateRight, repeatDuration);
-    event.preventDefault();
-    event.stopPropagation();
-    event.cancelBubble = true;
-    event.returnValue = false;
+    var e = event || window.event;
+    e.preventDefault && e.preventDefault();
+    e.stopPropagation && e.stopPropagation();
+    e.cancelBubble = true;
+    e.returnValue = false;
     return false;
 }
 
 function BackwardRepeat(event) {
     if (!repeatTimer)
         repeatTimer = setInterval(Backward, repeatDuration);
-    event.preventDefault();
-    event.stopPropagation();
-    event.cancelBubble = true;
-    event.returnValue = false;
+    var e = event || window.event;
+    e.preventDefault && e.preventDefault();
+    e.stopPropagation && e.stopPropagation();
+    e.cancelBubble = true;
+    e.returnValue = false;
     return false;
 }
 
