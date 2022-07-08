@@ -1,6 +1,6 @@
 @media (orientation: portrait) {
     .all {
-        grid-template-rows: 5% 10% 45% 35% 5%;
+        grid-template-rows: 5% 10% 40% 40% 5%;
         grid-template-columns: 2.5% 95% 2.5%;
     }
     
