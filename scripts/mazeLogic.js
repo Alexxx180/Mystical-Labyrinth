@@ -257,20 +257,21 @@ function BackwardRepeat(event) {
 }
 
 function SetMovementEvents() {
-    GetById('Up').addEventListener('touchstart', ForwardRepeat);
+    GetById('Up').ontouchstart = ForwardRepeat;
 	GetById('Up').addEventListener('mousedown', ForwardRepeat);
-	GetById('Left').addEventListener('touchstart', LeftRepeat);
+	GetById('Left').ontouchstart = LeftRepeat;
 	GetById('Left').addEventListener('mousedown', LeftRepeat);
-	GetById('Right').addEventListener('touchstart', RightRepeat);
+	GetById('Right').ontouchstart = RightRepeat);
 	GetById('Right').addEventListener('mousedown', RightRepeat);
-	GetById('Down').addEventListener('touchstart', BackwardRepeat);
+	GetById('Down').ontouchstart = BackwardRepeat);
 	GetById('Down').addEventListener('mousedown', BackwardRepeat);
 }
 
 function SetClearEvent(elements) {
     for(let i = 0; i < elements.length; i++) {
-		GetById(elements[i]).addEventListener('touchend', ClearMove);
-        GetById(elements[i]).addEventListener('touchmove', ClearMove);
+		GetById(elements[i]).ontouchend = ClearMove;
+        GetById(elements[i]).ontouchmove =  ClearMove;
+        GetById(elements[i]).ontouchcancel =  ClearMove;
         GetById(elements[i]).addEventListener('mouseup', ClearMove);
         GetById(elements[i]).addEventListener('mousemove', ClearMove);
         GetById(elements[i]).oncontextmenu = NoContextMenu;
