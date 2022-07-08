@@ -205,23 +205,41 @@ function TimeText() {
 
 function ClearMove() {
 	if (repeatTimer)
-	    clearInterval(repeatTimer);
+	{
+		clearInterval(repeatTimer);
+		repeatTimer = false;
+	}
 }
 
-function RepeatMove(move) {
+function ForwardRepeat() {
 	if (!repeatTimer)
-	    repeatTimer = setInterval(move, repeatDuration);
+        repeatTimer = setInterval(Forward, repeatDuration);
+}
+
+function LeftRepeat() {
+    if (!repeatTimer)
+        repeatTimer = setInterval(RotateLeft, repeatDuration);
+}
+
+function RightRepeat() {
+    if (!repeatTimer)
+        repeatTimer = setInterval(RotateRight, repeatDuration);
+}
+
+function BackwardRepeat() {
+    if (!repeatTimer)
+        repeatTimer = setInterval(Backward, repeatDuration);
 }
 
 function SetMovementEvents() {
-    GetById('Up').addEventListener('touchstart', RepeatMove, Forward);
-	GetById('Up').addEventListener('mousedown', RepeatMove, Forward);
-	GetById('Left').addEventListener('touchstart', RepeatMove, RotateLeft);
-	GetById('Left').addEventListener('mousedown', RepeatMove, RotateLeft);
-	GetById('Right').addEventListener('touchstart', RepeatMove, RotateRight);
-	GetById('Right').addEventListener('mousedown', RepeatMove, RotateRight);
-	GetById('Down').addEventListener('touchstart', RepeatMove, Backward);
-	GetById('Down').addEventListener('mousedown', RepeatMove, Backward);
+    GetById('Up').addEventListener('touchstart', ForwardRepeat);
+	GetById('Up').addEventListener('mousedown', ForwardRepeat);
+	GetById('Left').addEventListener('touchstart', LeftRepeat);
+	GetById('Left').addEventListener('mousedown', LeftRepeat);
+	GetById('Right').addEventListener('touchstart', RightRepeat);
+	GetById('Right').addEventListener('mousedown', RightRepeat);
+	GetById('Down').addEventListener('touchstart', BackwardRepeat);
+	GetById('Down').addEventListener('mousedown', BackwardRepeat);
 }
 
 function SetClearEvent(elements) {
