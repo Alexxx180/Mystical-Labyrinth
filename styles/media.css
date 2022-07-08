@@ -1,15 +1,3 @@
-@media (orientation: portrait) {
-    .all {
-        grid-template-rows: 2.5% 10% 40% 40% 7.5%;
-        grid-template-columns: 25% 50% 25%;
-    }
-    
-    .movement {
-        grid-row: 4;
-        grid-column: 2;
-    }
-}
-
 @media screen and (min-width: 0.0px) and (min-height: 0.0px) {
     .fs150 { font-size: 0.1em; }
     .fs200 { font-size: 0.15em; }
