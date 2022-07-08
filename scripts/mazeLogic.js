@@ -209,55 +209,30 @@ function ClearMove(event) {
 		clearInterval(repeatTimer);
 		repeatTimer = false;
 	}
-    var e = event || window.event;
-    e.preventDefault && e.preventDefault();
-    e.stopPropagation && e.stopPropagation();
-    e.cancelBubble = true;
-    e.returnValue = false;
     return false;
 }
 
 function ForwardRepeat(event) {
 	if (!repeatTimer)
         repeatTimer = setInterval(Forward, repeatDuration);
-    var e = event || window.event;
-    e.preventDefault && e.preventDefault();
-    e.stopPropagation && e.stopPropagation();
-    e.cancelBubble = true;
-    e.returnValue = false;
     return false;
 }
 
 function LeftRepeat(event) {
     if (!repeatTimer)
         repeatTimer = setInterval(RotateLeft, repeatDuration);
-    var e = event || window.event;
-    e.preventDefault && e.preventDefault();
-    e.stopPropagation && e.stopPropagation();
-    e.cancelBubble = true;
-    e.returnValue = false;
     return false;
 }
 
 function RightRepeat(event) {
     if (!repeatTimer)
         repeatTimer = setInterval(RotateRight, repeatDuration);
-    var e = event || window.event;
-    e.preventDefault && e.preventDefault();
-    e.stopPropagation && e.stopPropagation();
-    e.cancelBubble = true;
-    e.returnValue = false;
     return false;
 }
 
 function BackwardRepeat(event) {
     if (!repeatTimer)
         repeatTimer = setInterval(Backward, repeatDuration);
-    var e = event || window.event;
-    e.preventDefault && e.preventDefault();
-    e.stopPropagation && e.stopPropagation();
-    e.cancelBubble = true;
-    e.returnValue = false;
     return false;
 }
 
@@ -278,7 +253,15 @@ function SetClearEvent(elements) {
         GetById(elements[i]).addEventListener('touchmove', ClearMove);
         GetById(elements[i]).addEventListener('mouseup', ClearMove);
         GetById(elements[i]).addEventListener('mousemove', ClearMove);
+        GetById(elements[i]).oncontextmenu = NoContextMenu;
 	}
+}
+
+function NoContextMenu(event)
+{
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
 }
 
 function FormCreate() {
