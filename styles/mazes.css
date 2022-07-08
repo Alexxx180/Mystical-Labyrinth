@@ -1,6 +1,6 @@
 .all {
   grid-template-rows: 5% 7.5% 52.5% 30% 5%;
-  grid-template-columns: 2.5% 5% 75% 15% 2.5%;
+  grid-template-columns: 2.5% 10% 70% 15% 2.5%;
 }
 
 .walls {
