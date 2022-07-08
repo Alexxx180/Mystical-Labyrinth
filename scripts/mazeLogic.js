@@ -209,25 +209,21 @@ function ClearMove(event) {
 		clearInterval(repeatTimer);
 		repeatTimer = false;
 	}
-    return false;
 }
 
 function ForwardRepeat(event) {
 	if (!repeatTimer)
         repeatTimer = setInterval(Forward, repeatDuration);
-    return false;
 }
 
 function LeftRepeat(event) {
     if (!repeatTimer)
         repeatTimer = setInterval(RotateLeft, repeatDuration);
-    return false;
 }
 
 function RightRepeat(event) {
     if (!repeatTimer)
         repeatTimer = setInterval(RotateRight, repeatDuration);
-    return false;
 }
 
 function BackwardRepeat(event) {
