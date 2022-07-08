@@ -20,17 +20,16 @@
 
 <div id="Walls" class="grid r1-6 c1-7 walls"></div>
 
-<input id="GoalsInfo" title="Find exit and get in time!" type="image"
-       src="images/Right.svg" class="r2 c5 yellow wh2" value="Play" onclick="Goals()">
-
-<div id="Movement" class="r4 c4-6 grid moves wh2" style="visibility:hidden;">
+<article id="Timer1" class="timer fs200 wh2 content-center message2"></article>
+    
+<div id="Movement" class="movement grid moves wh2" style="visibility:hidden;">
 	<input id="Up"    type="image" src="images/Up.svg"    onclick="Forward()"     class="c2 wh2 white"/>
 	<input id="Left"  type="image" src="images/Left.svg"  onclick="RotateLeft()"  class="r2 wh2 white" />
 	<input id="Down"  type="image" src="images/Down.svg"  onclick="Backward()"    class="r3 c2 wh2 white" />
 	<input id="Right" type="image" src="images/Right.svg" onclick="RotateRight()" class="r2 c3 wh2 white" />
+	<input id="Start" type="image" src="images/Right.svg" onclick="Goals()" 
+           class="r2 c2 yellow wh2" value="Play" title="Find exit and get in time!">
 </div>
-
-<article id="Timer1" class="r2 c2 fs200 wh2 content-center message2"></article>
 
 <div id="wonInfo" class="message r1-6 c1-7 fs150 center" style="visibility: hidden;">
 	<p class="fs200">Congratulations, you completed the maze!</p>
