@@ -1,11 +1,11 @@
 @media (orientation: portrait) {
     .all {
-        grid-template-rows: 5% 10% 50% 30% 5%;
+        grid-template-rows: 5% 10% 45% 35% 5%;
         grid-template-columns: 2.5% 95% 2.5%;
     }
     
     .movement {
-        grid-row: 3;
+        grid-row: 4;
         grid-column: 2;
     }
 }
