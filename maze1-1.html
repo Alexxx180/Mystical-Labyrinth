@@ -11,37 +11,39 @@
 <script type="text/javascript" src="scripts/levels/maze1-1.js"></script>
 <script type="text/javascript" src="scripts/mazeLogic.js"></script>
 </head>
-<body onload="FormCreate()" class="abs grid all wh2">
+<body onload="FormCreate()" class="abs wh2">
 
-<div class="back wh2 grid r1-6 c1-7">
-<div class="ceiling wh2"></div>
-<div class="ground r2 wh2"></div>	
+<div class="abs grid back wh2">
+	<div class="ceiling wh2"></div>
+	<div class="ground r2 wh2"></div>
 </div>
 
-<div id="Walls" class="grid r1-6 c1-7 walls"></div>
-
-<article id="Timer1" class="timer wh2 content-center message2"></article>
+<div id="Walls" class="abs grid walls"></div>
+	
+<div class="abs grid all wh2">
+	<article id="Timer1" class="timer wh2 content-center message2"></article>
     
-<div id="Movement" class="movement grid moves wh2">
-	<input id="Up"    style="visibility:hidden;" type="image" src="images/Up.svg"    onclick="Forward()"     class="c2 wh2 white"/>
-	<input id="Left"  style="visibility:hidden;" type="image" src="images/Left.svg"  onclick="RotateLeft()"  class="r2 wh2 white" />
-	<input id="Down"  style="visibility:hidden;" type="image" src="images/Down.svg"  onclick="Backward()"    class="r3 c2 wh2 white" />
-	<input id="Right" style="visibility:hidden;" type="image" src="images/Right.svg" onclick="RotateRight()" class="r2 c3 wh2 white" />
-	<input id="Start" type="image" src="images/Right.svg" onclick="Goals()" 
-           class="r2 c2 yellow wh2" value="Play" title="Find exit and get in time!">
+    <div id="Movement" class="movement grid moves wh2">
+        <input id="Up"    style="visibility:hidden;" type="image" src="images/Up.svg"    onclick="Forward()"     class="c2 wh2 white"/>
+        <input id="Left"  style="visibility:hidden;" type="image" src="images/Left.svg"  onclick="RotateLeft()"  class="r2 wh2 white" />
+        <input id="Down"  style="visibility:hidden;" type="image" src="images/Down.svg"  onclick="Backward()"    class="r3 c2 wh2 white" />
+        <input id="Right" style="visibility:hidden;" type="image" src="images/Right.svg" onclick="RotateRight()" class="r2 c3 wh2 white" />
+        <input id="Start" type="image" src="images/Right.svg" onclick="Goals()" 
+               class="r2 c2 yellow wh2" value="Play" title="Find exit and get in time!">
+    </div>
 </div>
 
-<div id="wonInfo" class="message r1-6 c1-7 fs150 center" style="visibility: hidden;">
-	<p class="fs200">Congratulations, you completed the maze!</p>
-	<p>Maybe, another round?</p>
+<div id="wonInfo" class="abs message center" style="visibility: hidden;">
+	<h1>Congratulations, you completed the maze!</h1>
+	<h2>Maybe, another round?</h2>
 	<a href="maze1-1.html" class="button fs200 white content-center">Start over</a>
 	<a href="index.html" class="button fs200 white content-center">Level select</a>
 </div>
 
-<div id="loseInfo" class="message r1-6 c1-7 fs150 center" style="visibility: hidden;">
-	<p class="fs200">Ooops, it's too late!</p>
-	<a href="maze1-1.html" class="button fs200 white content-center">Start over</a>
-	<a href="index.html" class="button fs200 white content-center">Level select</a>
+<div id="loseInfo" class="abs message center" style="visibility: hidden;">
+	<h1>Ooops, it's too late!</h1>
+	<a href="maze1-1.html" class="button white content-center">Start over</a>
+	<a href="index.html" class="button white content-center">Level select</a>
 </div>
 
 </body>
