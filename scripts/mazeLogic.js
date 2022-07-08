@@ -1,4 +1,4 @@
-WallColumns = 300; //900
+WallColumns = 300;
 
 var X = startX;
 var Y = startY;
@@ -7,6 +7,9 @@ var pause = true;
 
 var time = [startTime[0],  startTime[1]];
 var timer;
+
+var repeatTimers = [];
+var repeatDuration = 250;
 
 Number.prototype.clamp = function(min, max) {
   return Math.min(Math.max(this, min), max);
@@ -200,16 +203,56 @@ function TimeText() {
 	return time[0] + ':' + parseInt(time[1] / 10) + '' + (time[1] % 10);
 }
 
+function ClearMove(no) {
+	if (repeatTimers[no])
+	    clearInterval(repeatTimers[no]);
+}
+
+/*function ForwardRepeat() {
+    repeatTimer = setInterval(Forward, repeatDuration);
+}
+
+function LeftRepeat() {
+    repeatTimer = setInterval(RotateLeft, repeatDuration);
+}
+
+function RightRepeat() {
+    repeatTimer = setInterval(RotateRight, repeatDuration);
+}
+
+function BackwardRepeat() {
+    repeatTimer = setInterval(Backward, repeatDuration);
+}*/
+
+function RepeatMove(no, move) {
+    repeatTimers[no] = setInterval(move, repeatDuration);
+}
+
+function SetMovementEvents(elements, events) {
+    for(let i = 0; i < elements.length; i++) {
+		GetById(elements[i]).addEventListener('touchstart', RepeatMove, i, events[i]);
+        GetById(elements[i]).addEventListener('mousedown', RepeatMove, i, events[i]);
+	}
+}
+
+function SetClearEvent(elements) {
+    for(let i = 0; i < elements.length; i++) {
+		GetById(elements[i]).addEventListener('touchend', ClearMove, i);
+        GetById(elements[i]).addEventListener('mouseup', ClearMove, i);
+	}
+}
+
 function FormCreate() {
-	var i,H;
-	for(i=0;i<WallColumns;i++){
+	for(let i = 0; i < WallColumns; i++) {
 		GetById("Walls").innerHTML += '<div class="self-center" id="K'+i+'" style="grid-column: '+(i+1)+'; width: 100%; height: 100%;"></div>';
 	}
 	GetById("Timer1").innerText = TimeText();
-	GetById('Up').ontouchstart  = Forward;
-	GetById('Left').ontouchstart  = RotateLeft;
-	GetById('Right').ontouchstart  = RotateRight;
-	GetById('Down').ontouchstart  = Backward;
+    
+    SetMovementEvents(['Up','Left','Down','Right'],
+         [Forward, RotateLeft, Backward, RotateRight]);
+    
+    SetClearEvent(['Up','Left','Down','Right']);
+    
 	document.onkeydown = KeyBoardInput;
 	RevealScene();
 }
