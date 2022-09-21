@@ -11,6 +11,11 @@ var timer;
 var repeatTimer = false;
 var repeatDuration = 50;
 
+const pauseimages = [
+	"../../images/Info.svg",
+	"../../images/Right.svg"
+];
+
 Number.prototype.clamp = function(min, max) {
   return Math.min(Math.max(this, min), max);
 };
@@ -85,17 +90,17 @@ function WinnerRoad(col, row) {
 }
 
 function Goals() {
-	if (Start.value == 'Play') {
+	let isPlaying = Start.value == 'Play';
+	if (isPlaying) {
 		ShowX(['Up','Left','Down','Right']);
 		Start.value = 'Info';
-		Start.src = "images/Info.svg";
-		Pause(false);
+		Start.src = pauseimages[0];
 	} else {
 		HideX(['Up','Left','Down','Right']);
 		Start.value = 'Play';
-		Start.src = "images/Right.svg";
-		Pause(true);
+		Start.src = pauseimages[1];
 	}
+	Pause(false);
 }
 
 function Forward() {
@@ -212,7 +217,7 @@ function ClearMove(event) {
 }
 
 function ForwardRepeat(event) {
-	if (!repeatTimer)
+    if (!repeatTimer)
         repeatTimer = setInterval(Forward, repeatDuration);
 }
 
